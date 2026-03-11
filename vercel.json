@@ -1,10 +1,10 @@
-{
+﻿{
   "version": 2,
-  "public": false,
-  "buildCommand": "npm run build",
-  "outputDirectory": "build",
+  "static": {
+    "public": "build"
+  },
   "routes": [
-    { "handle": "filesystem" },
+    { "src": "/static/(.*)", "dest": "/static/" },
     { "src": "/(.*)", "dest": "/index.html", "status": 200 }
   ]
 }
