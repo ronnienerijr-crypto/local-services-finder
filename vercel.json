@@ -1,10 +1,16 @@
 ﻿{
   "version": 2,
-  "static": {
-    "public": "build"
-  },
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!static/|favicon.ico|manifest.json|robots.txt|logo192.png|logo512.png).*)",
+      "destination": "/index.html"
+    }
   ]
 }
