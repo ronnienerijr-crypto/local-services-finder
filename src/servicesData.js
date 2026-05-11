@@ -601,7 +601,6 @@ const services = [
     image: '/images/kaffi.png',
   },
 ].map((service) => ({
-  likes: 0,
   ...service,
   likes: typeof service.likes === 'number' ? service.likes : 0,
   reviews: Array.isArray(service.reviews) ? service.reviews : [],

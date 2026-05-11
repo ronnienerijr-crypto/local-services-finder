@@ -82,22 +82,18 @@ function Home() {
   const { categoryId } = useParams();
   const [searchTerm, setSearchTerm] = React.useState('');
   const [category, setCategory] = React.useState(categoryId || 'all');
-  const [favorites, setFavorites] = React.useState(() => {
+  const favorites = React.useMemo(() => {
     try {
       const stored = window.localStorage.getItem('favorites');
       return stored ? JSON.parse(stored) : [];
     } catch {
       return [];
     }
-  });
+  }, []);
 
   React.useEffect(() => {
     setCategory(categoryId || 'all');
   }, [categoryId]);
-
-  React.useEffect(() => {
-    window.localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
 
   const isFavorite = (id) => favorites.includes(id);
   const selectedCategory = categoryTabs.find((tab) => tab.id === category);
