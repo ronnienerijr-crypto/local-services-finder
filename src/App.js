@@ -31,7 +31,6 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalLaundryServiceIcon from '@mui/icons-material/LocalLaundryService';
 import PrintIcon from '@mui/icons-material/Print';
-import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import HotelIcon from '@mui/icons-material/Hotel';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
@@ -124,15 +123,6 @@ function Home() {
     }
     return a.title.localeCompare(b.title, undefined, { sensitivity: 'base' });
   });
-
-  const toggleFavorite = (id) => {
-    setFavorites((current) => {
-      if (current.includes(id)) {
-        return current.filter((item) => item !== id);
-      }
-      return [...current, id];
-    });
-  };
 
   const getAverageRating = (serviceId) => {
     try {
