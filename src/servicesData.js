@@ -602,12 +602,10 @@ const services = [
   },
 ].map((service) => ({
   likes: 0,
-  reviews: [],
-  comments: [],
   ...service,
   likes: typeof service.likes === 'number' ? service.likes : 0,
   reviews: Array.isArray(service.reviews) ? service.reviews : [],
-  comments: Array.isArray(service.comments) ? service.comments : [],
+  comments: Array.isArray(service.comments) ? service.comments : []
 }));
 
 export default services;

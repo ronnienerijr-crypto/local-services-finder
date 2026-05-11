@@ -23,7 +23,6 @@ import {
   Divider,
   IconButton,
   Chip,
-  Tooltip,
   Rating,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -93,12 +92,12 @@ function Home() {
   });
 
   React.useEffect(() => {
-    window.localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
-
-  React.useEffect(() => {
     setCategory(categoryId || 'all');
   }, [categoryId]);
+
+  React.useEffect(() => {
+    window.localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const isFavorite = (id) => favorites.includes(id);
   const selectedCategory = categoryTabs.find((tab) => tab.id === category);

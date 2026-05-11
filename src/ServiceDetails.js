@@ -323,9 +323,9 @@ function ServiceDetails() {
                             try {
                               let origin = null;
                               // try geolocation
-                              origin = await new Promise((resolve, reject) => {
+                              origin = await new Promise((resolve) => {
                                 if (!navigator.geolocation) return resolve(null);
-                                const id = navigator.geolocation.getCurrentPosition(
+                                navigator.geolocation.getCurrentPosition(
                                   (pos) => {
                                     resolve([pos.coords.latitude, pos.coords.longitude]);
                                   },
